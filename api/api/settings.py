@@ -146,10 +146,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #     "http://localhost:3000",  # React frontend
 #     "http://192.168.1.6:3000"
 # ]
-CORS_ALLOW_CREDENTIALS = True  # Allow cookies and authentication
-CORS_ALLOW_HEADERS = ["*"]  # Allow all headers
-CORS_ALLOW_METHODS = ["*"]  # Allow all request methods (GET, POST, PUT, DELETE, etc.)
+CORS_ALLOWED_ORIGINS = [
+    "https://sunny-beijinho-51435a.netlify.app",  # ✅ Allow your frontend
+    "http://localhost:3000",  # ✅ Allow local development
+]
 
+CORS_ALLOW_CREDENTIALS = True  # ✅ Allow cookies/auth headers
+CORS_ALLOW_METHODS = ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+CORS_ALLOW_HEADERS = ["*"]  # ✅ Allow all headers
 AUTH_USER_MODEL = 'users.CustomUser'
 MEDIA_URL = '/media/'  # URL to access media files
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
