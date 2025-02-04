@@ -43,9 +43,9 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -146,7 +146,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #     "http://localhost:3000",  # React frontend
 #     "http://192.168.1.6:3000"
 # ]
-CORS_ALLOW_ALL_ORIGINS = True  # 🔥 Allow all origins (for development)
+CORS_ALLOW_CREDENTIALS = True  # Allow cookies and authentication
+CORS_ALLOW_HEADERS = ["*"]  # Allow all headers
+CORS_ALLOW_METHODS = ["*"]  # Allow all request methods (GET, POST, PUT, DELETE, etc.)
 
 AUTH_USER_MODEL = 'users.CustomUser'
 MEDIA_URL = '/media/'  # URL to access media files
